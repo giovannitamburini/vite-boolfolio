@@ -15,7 +15,8 @@ export default {
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                <img src="https://www.freecodecamp.org/news/content/images/size/w2000/2022/08/Vue-Blog-Cover-2.png"
+                    alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                 Bootstrap
             </a>
         </div>

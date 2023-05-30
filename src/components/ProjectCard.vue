@@ -35,14 +35,15 @@ export default {
 
         coverImage() {
 
-            return 'https://www.freecodecamp.org/news/content/images/size/w2000/2022/08/Vue-Blog-Cover-2.png';
 
-            // if (this.project.cover_image != 'null') {
+            if (this.project.cover_image == null) {
 
-            // } else {
+                return 'https://www.freecodecamp.org/news/content/images/size/w2000/2022/08/Vue-Blog-Cover-2.png';
 
-            //     return this.baseUrl + 'storage/' + this.project.cover_image;
-            // }
+            } else {
+
+                return this.baseUrl + 'storage/' + this.project.cover_image;
+            }
 
 
         }
