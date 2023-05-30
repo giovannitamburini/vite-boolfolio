@@ -10,9 +10,11 @@ export default {
     data() {
         return {
 
+            apiURL: 'http://127.0.0.1:8000/api/projects',
+
             projects: [],
 
-            currentPage: 1,
+            pagination: {},
         }
     },
 
@@ -22,15 +24,15 @@ export default {
     },
 
     created() {
-        this.getProjects();
+        this.getProjects(this.apiURL);
     },
 
     methods: {
-        getProjects() {
+        getProjects(apiUrl) {
 
             // link ottenuto dalla rotta in laravel
             // axios.get('http://127.0.0.1:8000/api/projects').then(response => {
-            axios.get('http://127.0.0.1:8000/api/projects?page=' + this.currentPage).then(response => {
+            axios.get(apiUrl).then(response => {
 
 
                 // il percoso giusto per ottenere solo l'array contenente i progetti lo ricavo controllando la console 
@@ -38,16 +40,12 @@ export default {
 
                 // this.projects = response.data.results;
                 this.projects = response.data.results.data;
+
+                // salvo anche le variabili per la paginazione
+                this.pagination = response.data.results;
             })
 
         },
-
-        nextPage() {
-
-            this.currentPage++;
-
-            this.getProjects();
-        }
     },
 }
 </script>
@@ -64,7 +62,15 @@ export default {
             </div>
         </div>
 
-        <button @click="nextPage()" class="btn btn-primary">Next Page</button>
+
+        <!-- <button @click="nextPage()" class="btn btn-primary">Next Page</button> -->
+
+
+
+        <button v-for="link in pagination.links" class="btn" :class="link.active ? 'btn-primary' : 'btn-outline-secondary'"
+            v-html="link.label" :disabled="link.url == null ? true : false" @click="getProjects(link.url)">
+        </button>
+
 
     </div>
 
