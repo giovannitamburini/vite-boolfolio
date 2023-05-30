@@ -1,53 +1,53 @@
 <script>
 
-import axios from 'axios';
+// import axios from 'axios';
 
-import ProjectCard from './ProjectCard.vue';
+// import ProjectCard from './ProjectCard.vue';
 
-export default {
-    name: 'AppMain',
+// export default {
+//     name: 'AppMain',
 
-    data() {
-        return {
+//     data() {
+//         return {
 
-            apiURL: 'http://127.0.0.1:8000/api/projects',
+//             apiURL: 'http://127.0.0.1:8000/api/projects',
 
-            projects: [],
+//             projects: [],
 
-            pagination: {},
-        }
-    },
+//             pagination: {},
+//         }
+//     },
 
-    components: {
+//     components: {
 
-        ProjectCard,
-    },
+//         ProjectCard,
+//     },
 
-    created() {
-        this.getProjects(this.apiURL);
-    },
+//     created() {
+//         this.getProjects(this.apiURL);
+//     },
 
-    methods: {
-        getProjects(apiUrl) {
+//     methods: {
+//         getProjects(apiUrl) {
 
-            // link ottenuto dalla rotta in laravel
-            // axios.get('http://127.0.0.1:8000/api/projects').then(response => {
-            axios.get(apiUrl).then(response => {
+//             // link ottenuto dalla rotta in laravel
+//             // axios.get('http://127.0.0.1:8000/api/projects').then(response => {
+//             axios.get(apiUrl).then(response => {
 
 
-                // il percoso giusto per ottenere solo l'array contenente i progetti lo ricavo controllando la console 
-                // console.log(response.data.results);
+//                 // il percoso giusto per ottenere solo l'array contenente i progetti lo ricavo controllando la console
+//                 // console.log(response.data.results);
 
-                // this.projects = response.data.results;
-                this.projects = response.data.results.data;
+//                 // this.projects = response.data.results;
+//                 this.projects = response.data.results.data;
 
-                // salvo anche le variabili per la paginazione
-                this.pagination = response.data.results;
-            })
+//                 // salvo anche le variabili per la paginazione
+//                 this.pagination = response.data.results;
+//             });
 
-        },
-    },
-}
+//         },
+//     },
+// }
 </script>
 
 <template>
