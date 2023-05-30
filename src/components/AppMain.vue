@@ -62,11 +62,7 @@ export default {
             </div>
         </div>
 
-
-        <!-- <button @click="nextPage()" class="btn btn-primary">Next Page</button> -->
-
-
-
+        <!-- bottoni per la paginazione -->
         <button v-for="link in pagination.links" class="btn" :class="link.active ? 'btn-primary' : 'btn-outline-secondary'"
             v-html="link.label" :disabled="link.url == null ? true : false" @click="getProjects(link.url)">
         </button>
