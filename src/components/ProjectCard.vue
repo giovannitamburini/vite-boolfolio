@@ -70,7 +70,10 @@ export default {
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Slug: {{ project.slug }}</li>
         </ul>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="text-center">
+            <router-link :to="{ name: 'projects.show', params: { slug: project.slug } }"
+                class="btn btn-outline-primary">Dettagli</router-link>
+        </div>
     </div>
 </template>
 
