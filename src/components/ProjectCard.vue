@@ -70,6 +70,7 @@ export default {
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Slug: {{ project.slug }}</li>
         </ul>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
 </template>
 
