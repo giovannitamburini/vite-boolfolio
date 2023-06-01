@@ -14,6 +14,8 @@ export default {
 
             projects: [],
 
+            types: [],
+
             pagination: {},
         }
     },
@@ -41,6 +43,8 @@ export default {
                 // this.projects = response.data.results;
                 this.projects = response.data.results.data;
 
+                this.types = response.data.allType;
+
                 // salvo anche le variabili per la paginazione
                 this.pagination = response.data.results;
             });
@@ -54,6 +58,13 @@ export default {
     <div class="container py-3">
         <div v-if="projects.length > 0" class="pt-5">
             <h1>I progetti del mio portfolio</h1>
+
+            <form action="">
+                <select name="type_id" id="type_id">
+                    <option value="">Tutte</option>
+                    <option v-for="singleType in types" :value="singleType.id">{{ singleType.name }}</option>
+                </select>
+            </form>
 
             <hr>
 
@@ -80,7 +91,7 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .loading-screen {
     display: flex;
     justify-content: center;
